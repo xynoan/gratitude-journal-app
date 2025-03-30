@@ -6,7 +6,7 @@ import {
   TouchableOpacity, 
   Image 
 } from 'react-native';
-import { useTheme } from '../utils/theme';
+import themeUtils from '../utils/theme';
 import { GratitudeEntry } from '../utils/types';
 import { format, parseISO } from 'date-fns';
 
@@ -16,7 +16,7 @@ interface EntryCardProps {
 }
 
 const EntryCard: React.FC<EntryCardProps> = ({ entry, onPress }) => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
 
   const formattedDate = () => {
     try {

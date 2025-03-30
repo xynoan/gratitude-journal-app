@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native';
-import { useTheme } from '../utils/theme';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import themeUtils from '../utils/theme';
 import { useAppContext } from '../context/AppContext';
 import Button from '../components/Button';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
 const AuthScreen: React.FC = () => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const { isAuthenticated, authenticate } = useAppContext();
 
   // Redirect to home if already authenticated

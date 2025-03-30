@@ -7,7 +7,7 @@ import {
   TextStyle, 
   ActivityIndicator 
 } from 'react-native';
-import { useTheme } from '../utils/theme';
+import themeUtils from '../utils/theme';
 
 interface ButtonProps {
   onPress: () => void;
@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
   textStyle,
   icon,
 }) => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   
   // Calculate button styles based on variant
   const getButtonStyle = () => {

@@ -5,14 +5,14 @@ import {
   StyleSheet, 
   TouchableOpacity, 
   Switch, 
-  SafeAreaView,
   ScrollView,
   Alert,
 } from 'react-native';
-import { useTheme } from '../utils/theme';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
+import themeUtils from '../utils/theme';
 import { useAppContext } from '../context/AppContext';
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
 
 type SettingItemProps = {
   icon: string;
@@ -33,7 +33,7 @@ const SettingItem: React.FC<SettingItemProps> = ({
   onToggle,
   rightText,
 }) => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
 
   return (
     <TouchableOpacity 
@@ -78,7 +78,7 @@ const SettingItem: React.FC<SettingItemProps> = ({
 };
 
 const SettingsScreen: React.FC = () => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const { 
     theme: themeMode, 
     setTheme, 

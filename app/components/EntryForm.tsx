@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
-import { useTheme } from '../utils/theme';
+import themeUtils from '../utils/theme';
 import Button from './Button';
 import { GratitudeEntry } from '../utils/types';
 import { DEFAULT_PROMPTS, DEFAULT_TAGS } from '../utils/types';
@@ -25,7 +25,7 @@ interface EntryFormProps {
 }
 
 const EntryForm: React.FC<EntryFormProps> = ({ onComplete, existingEntry }) => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const [entries, setEntries] = useState<string[]>(['', '', '']);
   const [photos, setPhotos] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);

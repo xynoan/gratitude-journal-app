@@ -1,19 +1,22 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppProvider } from './context/AppContext';
-import { useTheme } from './utils/theme';
+import themeUtils from './utils/theme';
 
 export default function RootLayout() {
   return (
-    <AppProvider>
-      <RootLayoutNav />
-    </AppProvider>
+    <SafeAreaProvider>
+      <AppProvider>
+        <RootLayoutNav />
+      </AppProvider>
+    </SafeAreaProvider>
   );
 }
 
 function RootLayoutNav() {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const isDark = theme.colors.background === '#121212';
 
   return (

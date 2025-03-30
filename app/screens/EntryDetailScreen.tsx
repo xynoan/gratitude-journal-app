@@ -3,22 +3,22 @@ import {
   View, 
   Text, 
   StyleSheet, 
-  SafeAreaView, 
   ScrollView, 
   TouchableOpacity,
   Alert,
   ActivityIndicator,
   Image,
 } from 'react-native';
-import { router, useLocalSearchParams } from 'expo-router';
-import { useTheme } from '../utils/theme';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { router, useLocalSearchParams, Stack } from 'expo-router';
+import themeUtils from '../utils/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { GratitudeEntry } from '../utils/types';
 import { getEntries, deleteEntry } from '../utils/storage';
 import { format, parseISO } from 'date-fns';
 
 const EntryDetailScreen: React.FC = () => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const params = useLocalSearchParams();
   const [entry, setEntry] = useState<GratitudeEntry | null>(null);
   const [loading, setLoading] = useState(true);

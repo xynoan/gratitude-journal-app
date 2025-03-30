@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { useTheme } from '../utils/theme';
+import themeUtils from '../utils/theme';
 import { Ionicons } from '@expo/vector-icons';
 
 interface StreakCounterProps {
@@ -8,7 +8,7 @@ interface StreakCounterProps {
 }
 
 const StreakCounter: React.FC<StreakCounterProps> = ({ streak }) => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
 
   return (
     <View 

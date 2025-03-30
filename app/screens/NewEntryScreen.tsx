@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  SafeAreaView, 
   View, 
   Text, 
   StyleSheet, 
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useTheme } from '../utils/theme';
+import themeUtils from '../utils/theme';
 import { Ionicons } from '@expo/vector-icons';
 import EntryForm from '../components/EntryForm';
 import { getEntryByDate, getEntries } from '../utils/storage';
@@ -16,7 +16,7 @@ import { GratitudeEntry } from '../utils/types';
 import { format } from 'date-fns';
 
 const NewEntryScreen: React.FC = () => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const params = useLocalSearchParams();
   const [loading, setLoading] = useState(false);
   const [existingEntry, setExistingEntry] = useState<GratitudeEntry | undefined>(undefined);

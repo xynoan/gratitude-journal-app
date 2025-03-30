@@ -4,12 +4,12 @@ import {
   Text, 
   StyleSheet, 
   FlatList, 
-  SafeAreaView,
   ActivityIndicator,
   TouchableOpacity,
   RefreshControl,
 } from 'react-native';
-import { useTheme } from '../utils/theme';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import themeUtils from '../utils/theme';
 import { useAppContext } from '../context/AppContext';
 import EntryCard from '../components/EntryCard';
 import StreakCounter from '../components/StreakCounter';
@@ -21,7 +21,7 @@ import { getEntries, updateStreak } from '../utils/storage';
 import { format } from 'date-fns';
 
 const HomeScreen: React.FC = () => {
-  const theme = useTheme();
+  const theme = themeUtils.useTheme();
   const { streak, isAuthenticated, authenticate } = useAppContext();
   const [entries, setEntries] = useState<GratitudeEntry[]>([]);
   const [loading, setLoading] = useState(true);
